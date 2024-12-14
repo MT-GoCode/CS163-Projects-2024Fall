@@ -27,7 +27,7 @@ In this article, we discuss three influential papers that have recently shaped t
 
 # MediaPipe: A Framework for Building Perception Pipelines
 
-![Screenshot 2024-12-13 at 10.52.23 AM.png](../assets/images/33/Screenshot_2024-12-13_at_10.52.23_AM.png)
+![fig1]({{ '/assets/images/33/Screenshot_2024-12-13_at_10.52.23_AM.png' | relative_url }})
 
 ## Motivation
 
@@ -56,9 +56,9 @@ The framework implements advanced scheduling mechanisms coupled with timestamp-b
 - **Object Detection:** Efficiently combines machine learning-based detection and lightweight tracking to process real-time video streams with reduced computational load.
 - **Face Landmark Detection and Segmentation:** Enables simultaneous face landmark estimation and segmentation by splitting and interpolating frames, achieving real-time visualization with synchronized annotations.
 
-![Screenshot 2024-12-13 at 11.12.18 AM.png](../assets/images/33/Screenshot_2024-12-13_at_11.12.18_AM.png)
+![fig2]({{ '/assets/images/33/Screenshot_2024-12-13_at_11.12.18_AM.png' | relative_url }})
 
-![Screenshot 2024-12-13 at 11.12.32 AM.png](../assets/images/33/Screenshot_2024-12-13_at_11.12.32_AM.png)
+![fig3]({{ '/assets/images/33/Screenshot_2024-12-13_at_11.12.32_AM.png' | relative_url }})
 
 - **Gesture Recognition and Pose Estimation:** Most important to this discusion, MediaPipe facilitates the development of real-time solutions for detecting hand gestures or human poses. It allows you to more easily leverage modular pipelines for precise processing of video.
 
@@ -66,7 +66,7 @@ The framework implements advanced scheduling mechanisms coupled with timestamp-b
 
 # MediaPipe Hands: On-device Real-time Hand Tracking
 
-![Screenshot 2024-12-12 at 9.59.06 PM.png](../assets/images/33/Screenshot_2024-12-12_at_9.59.06_PM.png)
+![fig4]({{ '/assets/images/33/Screenshot_2024-12-12_at_9.59.06_PM.png' | relative_url }})
 
 ## Motivation
 
@@ -86,7 +86,7 @@ An encoder-decoder structure is built for scene context integration helpful to d
 
 Focal loss optimization supports the extensive anchor set necessary for reliable detection, and in turn, helps address the challenge of variance differences.
 
-![Screenshot 2024-12-12 at 10.05.28 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.05.28_PM.png)
+![fig5]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.05.28_PM.png' | relative_url }})
 
 ### Hand Landmark Model: Precise Hand Pose Localization
 
@@ -96,7 +96,7 @@ The model's output encompasses three components: the spatial coordinates of 21 h
 
 For 2D coordinate prediction, the paper relies on real-world datasets, while for relative depth estimation, the paper relies on synthetic training data. For continuous/real-time operation, there is an intelligent reset mechanism, triggering redetection when alignment confidence falls beneath specified thresholds.
 
-![Screenshot 2024-12-12 at 10.05.39 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.05.39_PM.png)
+![fig6]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.05.39_PM.png' | relative_url }})
 
 ## Datasets
 
@@ -110,7 +110,7 @@ The synthetic dataset contains 100,000 images from a sophisticated 3D hand model
 
 The training strategy employs these datasets selectively: palm detection relies exclusively on the in-the-wild dataset to ensure robust appearance handling, while the hand landmark model leverages all three datasets. The annotation process includes 21 landmark positions for real images, projected 3D joint positions for synthetic data, and specific labeling for hand presence and handedness classification. This structured approach enables the model to learn from both natural variation and synthetically generated complexity.​​​​​​​​​​​​​​​​
 
-![Screenshot 2024-12-12 at 10.18.57 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.18.57_PM.png)
+![fig7]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.18.57_PM.png' | relative_url }})
 
 ## Results
 
@@ -120,10 +120,8 @@ The "Full" model configuration achieved an optimal balance between accuracy and 
 
 Qualitative analysis demonstrates the system's robust performance even when there is partial occlusion and diverse skin tones. Synthetic training data substantially reduced visual jitter in landmark predictions.
 
-![Screenshot 2024-12-12 at 10.27.34 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.27.34_PM.png)
-
-![Screenshot 2024-12-12 at 10.27.26 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.27.26_PM.png)
-
+![fig8]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.27.34_PM.png' | relative_url }})
+![fig9]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.27.26_PM.png' | relative_url }})
 ---
 
 # HMP: Hand Motion Priors for Pose and Shape Estimation from Video
@@ -164,15 +162,14 @@ Optimization happens in two stages:
 
 For occluded frames where tracking fails, the system uses information from visible frames to predict plausible hand motions. The method also works in parallel on long sequences, making it faster than older approaches.
 
-![Screenshot 2024-12-12 at 10.53.23 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.53.23_PM.png)
-
-![Screenshot 2024-12-12 at 10.50.01 PM.png](../assets/images/33/Screenshot_2024-12-12_at_10.50.01_PM.png)
+![fig10]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.53.23_PM.png' | relative_url }})
+![fig11]({{ '/assets/images/33/Screenshot_2024-12-12_at_10.50.01_PM.png' | relative_url }})
 
 ## Results
 
 As can seen from the table, the hand motion priors optimization makes improvements to all models on both tested datasets. The HO3D-v3 and DexYCB datasets are both datasets involving multiple individuals interacting with multiple objects, with a variety of settings and poses, including some occlusion. There are three error types measured. PA-MPJPE measures how accurately the predicted hand shape matches the ground truth after aligning their scales and orientations. RA-MPJPE evaluates the accuracy of the predicted joint positions relative to the root of the hand. RA-ACC assesses how smooth and consistent the predicted hand motion is over time compared to the ground truth.
 
-![Screenshot 2024-12-12 at 9.54.12 PM.png](../assets/images/33/Screenshot_2024-12-12_at_9.54.12_PM.png)
+![fig12]({{ '/assets/images/33/Screenshot_2024-12-12_at_9.54.12_PM.png' | relative_url }})
 
 # Technical Demo
 
@@ -189,7 +186,7 @@ On a high level, our model architecture was set up as follows:
 3. We used interpolation to normalize each video’s data to 200 timepoints. Our dataset consisted of 90 examples, each with 1 label (0, 1, 2) and 200 timepoints. Each timepoint consisted of ~140 MediaPipe features. 
 4. As evaluation of the stroke patient’s performance required an analysis of the temporal sequence  of hand features, we trained an RNN on this data.
 
-![image.png](../assets/images/33/image.png)
+![fig13]({{ '/assets/images/33/image.png' | relative_url }})
 
 To train the RNN, we used a five-fold cross validation setup to tune hyperparameters such as laerning rate, 30 epochs per fold, and a 20% test dataset. The final test accuracy achieved was 100%.
 
